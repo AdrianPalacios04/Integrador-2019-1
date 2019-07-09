@@ -1,0 +1,178 @@
+{
+	"USERS": [
+		{
+			"peticionHttp": "GET",
+			"descripcion": "Retorna todos los usuarios",
+			"url": "https://shareinfotecsup.herokuapp.com/api/user/",
+			"datos": ["id", "image", "name", "lastname", "email", "score", "cycle", "career"]
+		},
+		{
+			"peticionHttp": "GET",
+			"descripcion": "Retorna un usuario especifico",
+			"url": "https://shareinfotecsup.herokuapp.com/api/user/{id}",
+			"datosDevueltos": ["id", "image", "name", "lastname", "email", "score", "cycle", "career"]
+		},
+		{
+			"peticionHttp": "GET",
+			"descripcion": "Retorna todas las publicaciones pertenecientes a un usuario especifico",
+			"url": "https://shareinfotecsup.herokuapp.com/api/user/{id}/publications/",
+			"datosDevueltos": ["id", "title", "description", "createdAt", "updatedAt", "USER", "TAGS", "RESOURCES"]
+		},
+		{
+			"peticionHttp": "GET",
+			"descripcion": "Retorna todas las publicaciones favoritas a un usuario especifico",
+			"url": "https://shareinfotecsup.herokuapp.com/api/user/{id}/favorites/",
+			"datosDevueltos": ["id", "title", "description", "createdAt", "updatedAt", "USER", "TAGS", "RESOURCES"]
+		},
+		{
+			"peticionHttp": "GET",
+			"descripcion": "Retorna todas las publicaciones que le gustaron a un usuario especifico",
+			"url": "https://shareinfotecsup.herokuapp.com/api/user/{id}/likes/",
+			"datosDevueltos": ["id", "title", "description", "createdAt", "updatedAt", "USER", "TAGS", "RESOURCES"]
+		},
+		{
+			"__nota": "Si el usuario ingresa por 1era vez, se creará un registro",
+			"peticionHttp": "POST",
+			"descripcion": "Crea un usuario",
+			"url": "https://shareinfotecsup.herokuapp.com/api/user/",
+			"datosCompletos": ["id", "image", "name", "lastname", "email", "score", "cycle", "career"],
+			"datosObligatorios": ["image", "name", "lastname", "email"]
+		},
+		{
+			"peticionHttp": "PUT",
+			"descripcion": "Actualiza los datos de un usuario especifico",
+			"url": "https://shareinfotecsup.herokuapp.com/api/user/{id}",
+			"datosCompletos": ["image","name", "lastname", "email", "score","cycle", "career"],
+			"datosObligatorios": ["image", "name", "lastname", "email"],
+			"datosModificables": ["score", "cycle", "career"]
+		},
+		{
+			"peticionHttp": "DELETE",
+			"descripcion": "Elimina un usuario especifico",
+			"url": "https://shareinfotecsup.herokuapp.com/api/user/{id}"
+		}
+	],
+	"PUBLICATIONS": [
+		{
+			"peticionHttp": "GET",
+			"descripcion": "Retorna todas las publicaciones",
+			"url": "https://shareinfotecsup.herokuapp.com/api/publication/",
+			"datosDevueltos": ["id", "title", "description", "createdAt", "updatedAt", "USER", "TAGS", "RESOURCES"]
+		},
+		{
+			"peticionHttp": "GET",
+			"descripcion": "Retorna una publicacion especifica",
+			"url": "https://shareinfotecsup.herokuapp.com/api/publication/{id}",
+			"datosDevueltos": ["id", "title", "description", "createdAt", "updatedAt", "USER", "TAGS", "RESOURCES"]
+		},
+		{
+			"peticionHttp": "GET",
+			"descripcion": "Retorna los tags pertenecientes a una publicacion especifica",
+			"url": "https://shareinfotecsup.herokuapp.com/api/publication/{id}/tags",
+			"datosDevueltos": ["id", "name"]
+		},
+		{
+			"peticionHttp": "GET",
+			"descripcion": "Retorna los resursos pertenecientes a una publicacion especifica",
+			"url": "https://shareinfotecsup.herokuapp.com/api/publication/{id}/resources",
+			"datosDevueltos": ["id", "path", "name"]
+		},
+		{
+			"peticionHttp": "GET",
+			"descripcion": "Retorna los comentarios pertenecientes a una publicacion especifica",
+			"url": "https://shareinfotecsup.herokuapp.com/api/publication/{id}/comments",
+			"datosDevueltos": ["id", "content", "USER", "PUBLICATION"]
+		},
+		{
+			"peticionHttp": "POST",
+			"descripcion": "Crea una publicacion",
+			"url": "https://shareinfotecsup.herokuapp.com/api/publication/",
+			"datosCompletos": ["title", "description", "createdAt", "updatedAt", "USER.id", "TAGS.{name}", "RESOURCES.{path, name}"],
+			"datosObligatorios": ["title", "description", "createdAt", "updatedAt", "USER.id"]
+		},
+		{
+			"peticionHttp": "PUT",
+			"descripcion": "Actualiza los datos de una publicacion",
+			"url": "https://shareinfotecsup.herokuapp.com/api/publication/{id}",
+			"datosCompletos": ["title", "description", "createdAt", "updatedAt", "USER.{id}", "TAGS.{name}", "RESOURCES.{path, name}"],
+			"datosObligatorios": ["title", "description", "createdAt", "updatedAt", "USER.{id}"],
+			"datosModificables": ["title", "description", "updatedAt", "TAGS", "RESOURCES"]
+		},
+		{
+			"peticionHttp": "DELETE",
+			"descripcion": "Elimina una publicacion",
+			"url": "https://shareinfotecsup.herokuapp.com/api/publication/{id}"
+		}
+	],
+	"COMMENTS": [
+		{
+			"peticionHttp": "GET",
+			"descripcion": "Retorna todos los comentarios",
+			"url": "https://shareinfotecsup.herokuapp.com/api/comments/",
+			"datosDevueltos": ["id", "content", "USER", "PUBLICATION"]
+		},
+		{
+			"peticionHttp": "POST",
+			"descripcion": "Crea un comentario",
+			"url": "https://shareinfotecsup.herokuapp.com/api/comments/",
+			"datosCompletos": ["id", "content", "USER", "PUBLICATION"],
+			"datosObligatorios": ["content", "USER.{id}", "PUBLICATION.{id}"]
+		},
+		{
+			"peticionHttp": "PUT",
+			"descripcion": "Actualiza los datos de un comentario",
+			"url": "https://shareinfotecsup.herokuapp.com/api/comments/{id}",
+			"datosCompletos": ["id", "content", "USER.{id}", "PUBLICATION.{id}"],
+			"datosObligatorios": ["content", "USER.{id}", "PUBLICATION.{id}"],
+			"datosModificables": ["content"]
+		},
+		{
+			"peticionHttp": "DELETE",
+			"descripcion": "Elimina un comentario",
+			"url": "https://shareinfotecsup.herokuapp.com/api/comments/{id}"
+		}
+	],
+	"FAVORITES": [
+		{
+			"peticionHttp": "GET",
+			"descripcion": "Retorna todos las publicaciones favoritas",
+			"url": "https://shareinfotecsup.herokuapp.com/api/favorites/",
+			"datosDevueltos": ["id", "USER", "PUBLICATION"]
+		},
+		{
+
+			"__nota": "Si el usuario no lo agregó a sus favoritos, creará un registro | caso contrario, eliminará el registro",
+			"peticionHttp": "POST",
+			"descripcion": "Asigna un 'favorito' a una publicacion",
+			"url": "https://shareinfotecsup.herokuapp.com/api/favorites/",
+			"datosCompletos": ["id", "USER", "PUBLICATION"],
+			"datosObligatorios": ["USER.{id}", "PUBLICATION.{id}"]
+		},
+		{
+			"peticionHttp": "DELETE",
+			"descripcion": "Elimina el 'favorito' de una publicacion",
+			"url": "https://shareinfotecsup.herokuapp.com/api/favorites/{id}"
+		}
+	],
+	"LIKES": [
+		{
+			"peticionHttp": "GET",
+			"descripcion": "Retorna todas las publicaciones con 'me gusta'",
+			"url": "https://shareinfotecsup.herokuapp.com/api/likes/",
+			"datosDevueltos": ["id", "content", "USER", "PUBLICATION"]
+		},
+		{
+			"__nota": "Si el usuario no le dio me gusta, creará un registro | caso contrario, eliminará el registro",
+			"peticionHttp": "POST",
+			"descripcion": "Asigna un like a una publicacion",
+			"url": "https://shareinfotecsup.herokuapp.com/api/likes/",
+			"datosCompletos": ["id", "USER", "PUBLICATION"],
+			"datosObligatorios": ["USER.{id}", "PUBLICATION.{id}"]
+		},
+		{
+			"peticionHttp": "DELETE",
+			"descripcion": "Elimina el 'me gusta' de una publicacion",
+			"url": "https://shareinfotecsup.herokuapp.com/api/likes/{id}"
+		}
+	]
+}

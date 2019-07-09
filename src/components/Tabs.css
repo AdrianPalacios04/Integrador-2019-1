@@ -1,0 +1,9 @@
+.content{
+   display: flex;
+   background: yellow;
+   flex-wrap: wrap;
+}
+
+.item{
+   margin: 20px;
+}
